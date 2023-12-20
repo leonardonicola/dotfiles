@@ -1,14 +1,8 @@
 #!/bin/bash
 
-if ! command -v brew &>/dev/null; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-fi
-
-# Install dependencies using Homebrew (macOS)
-brew install neofetch node nvim tmux lua fd ripgrep
-
-# Install dependencies (adjust for your package manager)
-# e.g., sudo apt-get install neofetch onefetch htop wget nodejs npm ripgrep tmux lua fzf fd-find exa bat
+# Install dependencies using apt install
+sudo apt update
+sudo apt install neofetch nodejs nvim tmux lua fd ripgrep build-essential
 
 # Set the path to your dotfiles repository
 dotfiles_path="$(pwd)"
