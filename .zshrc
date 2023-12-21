@@ -100,7 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='nvim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -110,7 +109,6 @@ export EDITOR='nvim'
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias code="nvim"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # set DISPLAY variable to the IP automatically assigned to WSL2
