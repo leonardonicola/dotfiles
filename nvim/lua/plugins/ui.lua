@@ -1,5 +1,9 @@
 return {
   {
+    "echasnovski/mini.indentscope",
+    enabled = false,
+  },
+  {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     opts = function(_, opts)
@@ -21,5 +25,19 @@ ________/\\\\\\\\\_______/\\\\\_______/\\\\\\\\\\\\________/\\\\\\\\\________/\\
   },
   {
     "christoomey/vim-tmux-navigator",
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = {
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "encoding", "filetype" },
+        lualine_y = {},
+        lualine_z = { "hostname" },
+      },
+    },
   },
 }

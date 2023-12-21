@@ -10,3 +10,5 @@ keymaps.set("n", "<C-Right>", "<C-w>l", { desc = "Go to right window" })
 
 keymaps.set("n", "<S-Left>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymaps.set("n", "<S-Right>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+
+keymaps.set("n", "<leader>rn", ":IncRename ")

@@ -1,11 +1,20 @@
 return {
   {
-    "LazyVim/LazyVim",
+    "folke/tokyonight.nvim",
+    lazy = true,
     opts = {
-      colorscheme = "catppuccin",
+      style = "night",
+      styles = {
+        sidebars = { "qf", "vista_kind", "terminal", "packer" },
+        functions = { bold = true },
+        keywords = { bold = true, italic = false },
+      },
     },
   },
   {
-    "catppuccin/nvim",
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight",
+    },
   },
 }
