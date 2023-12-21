@@ -110,7 +110,7 @@ export EDITOR='nvim'
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias code="nvim"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # set DISPLAY variable to the IP automatically assigned to WSL2
