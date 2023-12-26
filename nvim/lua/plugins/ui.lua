@@ -26,6 +26,7 @@ ________/\\\\\\\\\_______/\\\\\_______/\\\\\\\\\\\\________/\\\\\\\\\________/\\
   {
     "christoomey/vim-tmux-navigator",
   },
+  { "nvim-tree/nvim-web-devicons", lazy = true },
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
