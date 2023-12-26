@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# Install dependencies using apt install
-sudo apt update
-sudo apt install neofetch nodejs nvim tmux lua fd ripgrep build-essential
+# Install dependencies using pacman
+sudo pacman -Syu
+sudo pacman -Sy neofetch nodejs neovim tmux lua zsh fd ripgrep base-devel
+#Install ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Set the path to your dotfiles repository
 dotfiles_path="$(pwd)"
@@ -18,6 +20,7 @@ ln -s "$dotfiles_path/tmux/.tmux.conf" ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Configure nvim (LazyVim)
+mkdir -p ~/.config/
 ln -s "$dotfiles_path/nvim" ~/.config/nvim
 
 echo "Dotfiles setup complete!"
