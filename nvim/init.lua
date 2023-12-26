@@ -12,3 +12,51 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("config.lazy")
+
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+
+local cmp = require('cmp')
+cmp.setup({
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+  },
+  completion = {
+    completeopt = "menu,menuone",
+  },
+
+  window = {
+    completion = {
+      border = border "CmpBorder",
+      winhighlight = "Normal:Cmp",
+      scrollbar = false,
+    },
+    documentation = {
+      border = border "CmpDocBorder",
+      winhighlight = "Normal:CmpDoc",
+    },
+  },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+  },
+
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "nvim_lua" },
+    { name = "path" },
+  },
+})
