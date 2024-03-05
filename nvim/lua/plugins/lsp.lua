@@ -4,6 +4,7 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "tailwindcss-language-server",
+        "eslint-lsp",
         "typescript-language-server",
         "vue-language-server",
       })
