@@ -1,44 +1,36 @@
 return {
   {
-    "echasnovski/mini.indentscope",
-    enabled = false,
-  },
-  {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function(_, opts)
-      local logo = [[
-________/\\\\\\\\\_______/\\\\\_______/\\\\\\\\\\\\________/\\\\\\\\\________/\\\\\\\\\\\___
- _____/\\\////////______/\\\///\\\____\/\\\////////\\\____/\\\\\\\\\\\\\____/\\\/////////\\\_
-  ___/\\\/_____________/\\\/__\///\\\__\/\\\______\//\\\__/\\\/////////\\\__\//\\\______\///__
-   __/\\\______________/\\\______\//\\\_\/\\\_______\/\\\_\/\\\_______\/\\\___\////\\\_________
-    _\/\\\_____________\/\\\_______\/\\\_\/\\\_______\/\\\_\/\\\\\\\\\\\\\\\______\////\\\______
-     _\//\\\____________\//\\\______/\\\__\/\\\_______\/\\\_\/\\\/////////\\\_________\////\\\___
-      __\///\\\___________\///\\\__/\\\____\/\\\_______/\\\__\/\\\_______\/\\\__/\\\______\//\\\__
-       ____\////\\\\\\\\\____\///\\\\\/_____\/\\\\\\\\\\\\/___\/\\\_______\/\\\_\///\\\\\\\\\\\/___
-        _______\/////////_______\/////_______\////////////_____\///________\///____\///////////_____
-    ]]
-
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
+    "NvChad/base46",
+    branch = "v2.5",
+    build = function()
+      require("base46").load_all_highlights()
     end,
   },
   {
-    "christoomey/vim-tmux-navigator",
+    "nvim-tree/nvim-web-devicons",
+    opts = function()
+      return require "configs.devicons"
+    end,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "devicons")
+      require("nvim-web-devicons").setup(opts)
+    end,
   },
-  { "nvim-tree/nvim-web-devicons", lazy = true },
   {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
+    "lukas-reineke/indent-blankline.nvim",
+    event = "User FilePost",
     opts = {
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diagnostics" },
-        lualine_c = { "filename" },
-        lualine_x = { "encoding", "filetype" },
-        lualine_y = {},
-        lualine_z = { "hostname" },
-      },
+      indent = { char = "│", highlight = "IblChar" },
+      scope = { char = "│", highlight = "IblScopeChar" },
     },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "blankline")
+
+      local hooks = require "ibl.hooks"
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+      require("ibl").setup(opts)
+
+      dofile(vim.g.base46_cache .. "blankline")
+    end,
   },
 }

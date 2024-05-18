@@ -1,62 +1,38 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.mapleader = " "
+
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
+
 vim.opt.rtp:prepend(lazypath)
-require("config.lazy")
 
-local function border(hl_name)
-  return {
-    { "╭", hl_name },
-    { "─", hl_name },
-    { "╮", hl_name },
-    { "│", hl_name },
-    { "╯", hl_name },
-    { "─", hl_name },
-    { "╰", hl_name },
-    { "│", hl_name },
-  }
-end
-
-local cmp = require('cmp')
-cmp.setup({
-  mapping = {
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  },
-  completion = {
-    completeopt = "menu,menuone",
-  },
-
-  window = {
-    completion = {
-      border = border "CmpBorder",
-      winhighlight = "Normal:Cmp",
-      scrollbar = false,
-    },
-    documentation = {
-      border = border "CmpDocBorder",
-      winhighlight = "Normal:CmpDoc",
-    },
-  },
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+-- load plugins
+local lazy_configs = require "configs.lazy"
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
     end,
   },
 
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "nvim_lua" },
-    { name = "path" },
-  },
-})
+  { import = "plugins" },
+}, lazy_configs)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
