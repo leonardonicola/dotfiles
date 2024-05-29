@@ -2,7 +2,8 @@
 
 # Install dependencies using pacman
 sudo pacman -Syu
-sudo pacman -Sy neofetch nodejs neovim htop tldr tmux lua zsh fd ripgrep base-devel fzf zoxide
+sudo pacman -Sy neofetch nodejs neovim htop tldr tmux lua zsh fd ripgrep base-devel fzf zoxide go docker
+
 #Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
