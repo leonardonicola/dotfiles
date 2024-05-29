@@ -1,9 +1,9 @@
 return {
   formatters_by_ft = {
     lua = { "stylua" },
-    vue = { "prettier" },
-    javascript = { "prettier" },
-    typescript = { "prettier" },
+    vue = { { "prettierd", "biome" } },
+    javascript = { { "prettierd", "biome" } },
+    typescript = { { "prettierd", "biome" } },
     go = { "gofmt" },
   },
   format_on_save = {

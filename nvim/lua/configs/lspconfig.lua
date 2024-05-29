@@ -2,20 +2,21 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-local home = os.getenv "HOME"
+
+local mason_registry = require "mason-registry"
+local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+  .. "/node_modules/@vue/language-server"
+
 local lspconfig = require "lspconfig"
-local tsdk = require("mason-registry").get_package("typescript-language-server"):get_install_path()
-  .. "/node_modules/typescript/lib"
 local servers = {
   "cssls",
   "html",
   "gopls",
   "jsonls",
   "tailwindcss",
+  "eslint",
   "volar",
 }
-
-local vuePlugin = home .. "/node_modules/@vue/typescript_plugin"
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -53,11 +54,18 @@ lspconfig.lua_ls.setup {
   },
 }
 
-lspconfig.volar.setup {
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  on_init = on_init,
   init_options = {
-    vue = {
-      hybridMode = false,
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { "vue" },
+      },
     },
   },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 }

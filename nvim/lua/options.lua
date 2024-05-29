@@ -6,9 +6,16 @@ local g = {
   skip_ts_context_commentstring_module = true,
   -- :h clipboard-wsl
   clipboard = {
-    name = "wslclipboard",
-    copy = { ["+"] = "clip.exe", ["*"] = "clip.exe" },
-    cache_enabled = 0,
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "/usr/local/bin/win32yank.exe -i --crlf",
+      ["*"] = "/usr/local/bin/win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "/usr/local/bin/win32yank.exe -o --lf",
+      ["*"] = "/usr/local/bin/win32yank.exe -o --lf",
+    },
+    cache_enabled = true,
   },
 }
 

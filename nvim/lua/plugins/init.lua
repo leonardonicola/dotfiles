@@ -1,5 +1,4 @@
 return {
-  { "nvim-lua/plenary.nvim" },
   {
     "nvim-tree/nvim-tree.lua",
     lazy = false,
@@ -14,7 +13,7 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
+    event = { "BufWritePre", "VeryLazy" },
     cmd = { "ConformInfo" },
     keys = {
       {
@@ -48,7 +47,7 @@ return {
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
-    dependencies = "folke/neodev.nvim",
+    event = "User FilePost",
     config = function()
       require "configs.lspconfig"
     end,
@@ -58,7 +57,6 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     opts = function()
       return require "configs.treesitter"
     end,
@@ -80,49 +78,16 @@ return {
     end,
   },
   {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      {
-        -- snippet plugin
-        "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
-        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-        config = function(_, opts)
-          require("luasnip").config.set_config(opts)
-          require "nvchad.configs.luasnip"
-        end,
-      },
-
-      -- autopairing of (){}[] etc
-      {
-        "windwp/nvim-autopairs",
-        opts = {
-          fast_wrap = {},
-          disable_filetype = { "TelescopePrompt", "vim" },
-        },
-        config = function(_, opts)
-          require("nvim-autopairs").setup(opts)
-          -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
-      },
-
-      -- cmp sources plugins
-      {
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-      },
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "typescript",
+      "javascript",
+      "typescriptreact",
+      "javascriptreact",
+      "vue",
     },
-    opts = function()
-      return require "nvchad.configs.cmp"
-    end,
-    config = function(_, opts)
-      require("cmp").setup(opts)
+    config = function()
+      require("nvim-ts-autotag").setup()
     end,
   },
 }

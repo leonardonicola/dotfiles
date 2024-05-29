@@ -16,6 +16,9 @@ map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Git Status" })
 map("n", "<leader>ts", "<cmd>Telescope themes<CR>", { desc = "Theme Switcher" })
 map("n", "<leader>ts", "<cmd>Telescope treesitter<CR>", { desc = "Telescope TreeSitter" })
 
+-- lsp
+map("n", "K", vim.lsp.buf.hover, { desc = "Show line diagnostics" })
+
 -- Insert mode
 map("i", "jk", "<ESC>")
 map("i", "<C-l>", "<Right>")
