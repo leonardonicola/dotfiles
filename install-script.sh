@@ -2,7 +2,7 @@
 
 # Install dependencies using pacman
 sudo pacman -Syu
-sudo pacman -Sy neofetch nodejs neovim tmux lua zsh fd ripgrep base-devel
+sudo pacman -Sy neofetch nodejs neovim htop tldr tmux lua zsh fd ripgrep base-devel fzf zoxide
 #Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -18,6 +18,8 @@ ln -s "$dotfiles_path/.zshrc" ~/.zshrc
 # Configure tmux
 ln -s "$dotfiles_path/tmux/.tmux.conf" ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Configure nvim (LazyVim)
 mkdir -p ~/.config/
