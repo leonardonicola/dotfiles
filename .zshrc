@@ -82,7 +82,6 @@ plugins=(
 	docker-compose
 	docker
 	git-prompt
-  tmux
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -117,6 +116,7 @@ bindkey '^[[Z' autosuggest-accept
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias air='$(go env GOPATH)/bin/air'
 alias cd="z"
+alias vi="nvim"
 
 # set DISPLAY variable to the IP automatically assigned to WSL2
 export DISPLAY=${DISPLAY:-$(grep -Po '(?<=nameserver ).*' /etc/resolv.conf):0}
@@ -128,7 +128,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
-export PNPM_HOME="/home/mitz/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
