@@ -29,8 +29,4 @@ git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Install and configure Powerlevel10k theme for Oh My Zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# Configure Neovim (LazyVim)
-mkdir -p ~/.config/nvim
-ln -sf "$dotfiles_path/nvim" ~/.config/nvim
-
 echo "Dotfiles setup complete!"
