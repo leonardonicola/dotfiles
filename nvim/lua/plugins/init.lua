@@ -11,10 +11,6 @@ return {
     cmd = { "ConformInfo" },
     opts = require "configs.conform",
   },
-  {
-    "williamboman/mason.nvim",
-    opts = require "configs.mason"
-  },
 
   -- These are some examples, uncomment them if you want to see them work!
   {

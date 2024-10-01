@@ -8,10 +8,23 @@ M.base46 = {
   theme = "radium"
 }
 
-M.lsp = {
-  signature = true
+M.mason = {
+  pkgs = {
+    "bash-language-server",
+    "gopls",
+    "shfmt",
+    "luacheck",
+    "prettierd",
+    "biome",
+    "eslint-lsp",
+    "stylua",
+    "tailwindcss-language-server",
+    "lua-language-server",
+    "vue-language-server",
+    "typescript-language-server",
+    "terraform-ls",
+  }
 }
-
 
 M.ui = {
   theme = "radium",

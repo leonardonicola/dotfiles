@@ -20,8 +20,9 @@ return {
     "typescript",
     "vim",
     "vimdoc",
+    "terraform"
   },
-  auto_install = false,
+  auto_install = true,
   sync_install = false,
   indent = { enable = true },
   highlight = { enable = true },
