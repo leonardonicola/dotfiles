@@ -2,7 +2,7 @@
 
 # Update system and install packages
 sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm neofetch nodejs neovim htop tldr tmux lua zsh fd ripgrep base-devel fzf zoxide go docker
+sudo pacman -S --noconfirm neofetch nodejs htop tldr tmux lua zsh fd ripgrep base-devel fzf zoxide go docker
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

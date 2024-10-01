@@ -8,8 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$PATH:$GOBIN
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -86,7 +85,7 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh 
 
 # User configuration
 
@@ -140,3 +139,6 @@ esac
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
