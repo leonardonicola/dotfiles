@@ -6,12 +6,8 @@ return {
     typescript = { { "prettierd", "biome" } },
     go = { "gofmt" },
   },
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    lsp_fallback = true,
-  },
-  format_after_save = {
-    lsp_fallback = true,
+  default_format_opts = {
+    lsp_format = "fallback",
   },
   log_level = vim.log.levels.ERROR,
   -- Conform will notify you when a formatter errors
