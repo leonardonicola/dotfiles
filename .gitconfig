@@ -7,11 +7,11 @@
 [init]
 	defaultBranch = main
 [fetch]
-    	prune = true
+  prune = true
 [status]
-    	short = true
+  short = true
 [alias]
-	llog = log --graph --name-status --pretty=format:\'%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\' --date=relative
+  llog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative --abbrev-commit
 	cm = commit
 	st = status
 	ck = checkout
