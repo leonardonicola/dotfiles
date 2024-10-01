@@ -4,6 +4,15 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.base46 = {
+  theme = "radium"
+}
+
+M.lsp = {
+  signature = true
+}
+
+
 M.ui = {
   theme = "radium",
   cmp = {
@@ -14,9 +23,6 @@ M.ui = {
 
   telescope = { style = "bordered" }, -- borderless / bordered
   statusline = {
-    theme = "default", -- default/vscode/vscode_colored/minimal
-    -- default/round/block/arrow separators work only for default statusline theme
-    -- round and block will work for minimal theme only
     separator_style = "arrow",
     order = nil,
     modules = nil,
@@ -28,21 +34,6 @@ M.ui = {
     order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = nil,
   },
-
-  nvdash = {
-    load_on_startup = false,
-
-    buttons = {
-      { "  Find File", "Spc f f", "Telescope find_files" },
-      { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
-      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-      { "  Bookmarks", "Spc m a", "Telescope marks" },
-      { "  Themes", "Spc t h", "Telescope themes" },
-      { "  Mappings", "Spc c h", "NvCheatsheet" },
-    },
-  },
-
-  lsp = { signature = true },
 
   term = {
     hl = "Normal:term,WinSeparator:WinSeparator",
@@ -56,11 +47,6 @@ M.ui = {
       border = "single",
     },
   },
-
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
 }
 
 return M

@@ -11,5 +11,6 @@ return {
     "tailwindcss-language-server",
     "vue-language-server",
     "typescript-language-server",
+    "terraform-ls",
   },
 }

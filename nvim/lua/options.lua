@@ -54,6 +54,6 @@ local opt = {
 }
 
 -- Loop to apply settings in vim
-for k, v in pairs(opt) do
+for k, v in ipairs(opt) do
   vim.opt[k] = v
 end

@@ -1,13 +1,13 @@
 -- EXAMPLE
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local lspconfig = require "lspconfig"
+local nvlsp = require "nvchad.configs.lspconfig"
+
+nvlsp.defaults()
 
 local mason_registry = require "mason-registry"
 local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
   .. "/node_modules/@vue/language-server"
 
-local lspconfig = require "lspconfig"
 local servers = {
   "cssls",
   "html",
@@ -16,21 +16,22 @@ local servers = {
   "tailwindcss",
   "eslint",
   "volar",
+  "terraformls"
 }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
   }
 end
 
 lspconfig.lua_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  on_init = on_init,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  on_init = nvlsp.on_init,
   settings = {
     Lua = {
       hint = {
@@ -39,12 +40,14 @@ lspconfig.lua_ls.setup {
       diagnostics = {
         globals = { "vim" },
       },
-      workspace = {
+    workspace = {
         library = {
           [vim.fn.expand "$VIMRUNTIME/lua"] = true,
           [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+
           [vim.fn.stdpath "config" .. "/lua"] = true,
           [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
+
           [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
         },
         maxPreload = 100000,
@@ -55,9 +58,9 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.ts_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  on_init = on_init,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  on_init = nvlsp.on_init,
   init_options = {
     plugins = {
       {

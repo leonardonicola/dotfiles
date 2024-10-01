@@ -21,13 +21,8 @@ return {
     "vim",
     "vimdoc",
   },
-  auto_install = true,
+  auto_install = false,
   sync_install = false,
   indent = { enable = true },
   highlight = { enable = true },
-  query_linter = {
-    enable = true,
-    use_virtual_text = true,
-    lint_events = { "BufWrite", "CursorHold" },
-  },
 }
