@@ -9,15 +9,15 @@ M.ui = {
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
+    style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
   },
 
   telescope = { style = "bordered" }, -- borderless / bordered
   statusline = {
-    theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
+    theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "default",
+    separator_style = "arrow",
     order = nil,
     modules = nil,
   },
