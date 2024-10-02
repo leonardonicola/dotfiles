@@ -5,7 +5,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "radium"
+  theme = "poimandres",
+  transparency = true,
 }
 
 M.mason = {
@@ -27,16 +28,18 @@ M.mason = {
 }
 
 M.ui = {
-  theme = "radium",
+  theme = "poimandres",
   cmp = {
     icons = true,
     lspkind_text = true,
     style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
   },
 
+
   telescope = { style = "bordered" }, -- borderless / bordered
   statusline = {
-    separator_style = "arrow",
+    separator_style = "round",
+    theme = "minimal",
     order = nil,
     modules = nil,
   },
