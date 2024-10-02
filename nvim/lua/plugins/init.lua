@@ -30,7 +30,7 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function() 
+    config = function()
       require "configs.telescope"
     end,
   },
