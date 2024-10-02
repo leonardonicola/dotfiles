@@ -83,6 +83,7 @@ plugins=(
 	git-prompt
   zsh-autosuggestions
   zsh-syntax-highlighting
+  starship
 )
 
 source $ZSH/oh-my-zsh.sh 
@@ -139,6 +140,9 @@ esac
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# Starship
+eval "$(starship init zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform

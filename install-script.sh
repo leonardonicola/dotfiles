@@ -2,7 +2,7 @@
 
 # Update system and install packages
 sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm neofetch neovim nodejs htop tldr tmux lua zsh fd ripgrep base-devel fzf zoxide go docker
+sudo pacman -S --noconfirm neofetch neovim nodejs htop tldr tmux lua zsh fd ripgrep base-devel fzf zoxide go docker starship
 
 # Set the path to your dotfiles repository
 dotfiles_path="$(pwd)"
@@ -23,18 +23,17 @@ PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# Install nvm plugins or Node.js versions if needed
+# Install nvm plugins or Node.js versions
 nvm install --lts
 
 # Configure tmux and TPM plugin
 ln -sf "$dotfiles_path/tmux/.tmux.conf" ~/.tmux.conf
 git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Install and configure Powerlevel10k theme for Oh My Zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
 source ~/.zshrc
 
 echo "✅ Dotfiles setup complete!"
 echo "---------------------------"
-echo "Don't forget to run TMUX and install the plugins"
+echo -e "Don't forget to: \n"
+echo "1 - Run tmux and install the plugins with <C-b> + I"
+echo "2 - Run nvim and run :Lazy sync and :MasonInstallAll"
