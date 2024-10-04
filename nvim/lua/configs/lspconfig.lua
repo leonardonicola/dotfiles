@@ -4,9 +4,8 @@ local nvlsp = require "nvchad.configs.lspconfig"
 
 nvlsp.defaults()
 
-local mason_registry = require "mason-registry"
-local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-  .. "/node_modules/@vue/language-server"
+local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
+local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
 
 local servers = {
   "cssls",
@@ -14,9 +13,7 @@ local servers = {
   "gopls",
   "jsonls",
   "tailwindcss",
-  "eslint",
-  "volar",
-  "terraformls"
+  "terraformls",
 }
 
 -- lsps with default config
@@ -27,6 +24,18 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+lspconfig.eslint.setup {
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+
+  on_attach = function(_, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+}
 
 lspconfig.lua_ls.setup {
   on_attach = nvlsp.on_attach,
@@ -40,7 +49,7 @@ lspconfig.lua_ls.setup {
       diagnostics = {
         globals = { "vim" },
       },
-    workspace = {
+      workspace = {
         library = {
           [vim.fn.expand "$VIMRUNTIME/lua"] = true,
           [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
@@ -57,6 +66,41 @@ lspconfig.lua_ls.setup {
   },
 }
 
+lspconfig.volar.setup {
+  init_options = {
+    vue = {
+      hybridMode = false,
+    },
+    -- NOTE: This might not be needed. Uncomment if you encounter issues.
+
+    -- typescript = {
+    --   tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+    -- },
+  },
+  settings = {
+    typescript = {
+      inlayHints = {
+        enumMemberValues = {
+          enabled = true,
+        },
+        functionLikeReturnTypes = {
+          enabled = true,
+        },
+        propertyDeclarationTypes = {
+          enabled = true,
+        },
+        parameterTypes = {
+          enabled = true,
+          suppressWhenArgumentMatchesName = true,
+        },
+        variableTypes = {
+          enabled = true,
+        },
+      },
+    },
+  },
+}
+
 lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
@@ -65,7 +109,7 @@ lspconfig.ts_ls.setup {
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = vue_language_server_path,
+        location = volar_path,
         languages = { "vue" },
       },
     },

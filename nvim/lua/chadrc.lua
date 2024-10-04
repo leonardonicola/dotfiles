@@ -15,16 +15,19 @@ M.mason = {
     "gopls",
     "shfmt",
     "luacheck",
-    "prettierd",
+    "prettier",
     "biome",
     "eslint-lsp",
+    "css-lsp",
+    "html-lsp",
+    "json-lsp",
     "stylua",
     "tailwindcss-language-server",
     "lua-language-server",
     "vue-language-server",
     "typescript-language-server",
     "terraform-ls",
-  }
+  },
 }
 
 M.ui = {
@@ -34,7 +37,6 @@ M.ui = {
     lspkind_text = true,
     style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
   },
-
 
   telescope = { style = "bordered" }, -- borderless / bordered
   statusline = {
