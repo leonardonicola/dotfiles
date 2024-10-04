@@ -1,11 +1,12 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 
-
 # Use custom format
 format = """
-[╭─](white)$username in $directory$package$git_branch$cmd_duration
+[╭─](white)$username in $directory$git_branch$git_status$nodejs$golang
 [╰─](white)$character """
+
+right_format = """$cmd_duration"""
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
@@ -14,31 +15,27 @@ scan_timeout = 10
 [username]
 show_always = true
 style_root = "bold red"
-style_user = "bold yellow"
-format = "[$user]($style) "
+style_user = "bold bright-yellow"
+format = "[$user]($style)"
 disabled = false
 
 # Hostname settings
 [hostname]
-ssh_only = false
-disabled = false
+ssh_only = true
 
 # Directory indicator
 [directory]
 read_only = "🔒"
-style = "bold cyan"
+style = "bold bright-blue"
 read_only_style = "red"
-
 truncation_length = 8
-truncation_symbol = "/"
+truncation_symbol = ""
 format = "[$read_only]($read_only_style)[$path]($style) "
-
 disabled = false
 
 # Package Version Config
 [package]
-format = "via [🎁 $version](208 bold) "
-
+disabled=true
 
 # git settings
 [git_branch]
@@ -46,7 +43,6 @@ symbol = "🌱 "
 
 # cmd_duration config
 [cmd_duration]
-
 show_milliseconds = true
 style = "bold yellow"
 format = "took [$duration]($style)"
@@ -55,6 +51,15 @@ format = "took [$duration]($style)"
 [character]
 format = "$symbol"
 success_symbol = "[❯](bold green)"
-error_symbol = "[✗](bold red) "
+error_symbol = "[✗](bold red)"
 vicmd_symbol = "[❮](bold green)"
 disabled = false
+
+[nodejs]
+symbol = "🐢 "
+
+[aws]
+symbol = "☁️  "
+
+[golang]
+symbol = "🐧 "
