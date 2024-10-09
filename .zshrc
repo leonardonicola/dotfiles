@@ -118,9 +118,6 @@ alias air='$(go env GOPATH)/bin/air'
 alias cd="z"
 alias vi="nvim"
 
-# set DISPLAY variable to the IP automatically assigned to WSL2
-export DISPLAY=${DISPLAY:-$(grep -Po '(?<=nameserver ).*' /etc/resolv.conf):0}
-
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export NVM_DIR="$HOME/.nvm"

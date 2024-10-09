@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Update system and install packages
 sudo pacman -Syu --noconfirm

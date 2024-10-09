@@ -4,18 +4,6 @@ local g = {
   dap_virtual_text = true,
   bookmark_sign = "",
   skip_ts_context_commentstring_module = true,
-  clipboard = {
-    name = "WslClipboard",
-    copy = {
-      ["+"] = "clip.exe",
-      ["*"] = "clip.exe",
-    },
-    paste = {
-      ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-      ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    },
-    cache_enabled = 0,
-  },
 }
 
 -- Loop to apply settings in vim
@@ -34,6 +22,7 @@ local opt = {
   scrolloff = 10,
   -- Making sure backspace works as intended
   backspace = "indent,eol,start",
+  clipboard = "unnamedplus",
   -- True color support
   termguicolors = true,
   emoji = false,
