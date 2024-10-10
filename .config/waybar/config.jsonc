@@ -12,38 +12,60 @@
   "modules-right": [
     "cpu",
     "memory",
-    "wireplumber",
-    "custom/clock"
+    "pulseaudio",
+    "clock"
   ],
   // Modules configuration
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 60,
+    "separate-outputs": false
+  },
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "format": "{name}"
   },
-  "custom/clock": {
-    "exec": "date +'%H:%M'",
-    "alt": "date +'%d/%m/%Y'",
-    "interval": 10
+  "clock": {
+    "format": "{:%H:%M:%OS}  ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%A, %B %d, %Y}  ",
+    "timezone": "America/Sao_Paulo",
+    "on-click-right": "mode",
+    "interval": 1
   },
-  "wireplumber": {
-    "scroll-step": 5, // %, can be a float
-    "format": "{icon} {volume}%",
-    "format-muted": " Muted",
-    "format-icons": [
-      ""
-    ],
-    "on-click": "pavucontrol",
-    "interval": 4
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": "   {volume}% {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": " ",
+    "format-source-muted": " ",
+    "format-icons": {
+      "headphone": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [
+        " ",
+        " ",
+        " "
+      ]
+    },
+    "on-click": "pavucontrol"
   },
   "cpu": {
     "format": "{icon} {usage}% ",
+    "interval": 2,
     "format-icons": [
       ""
     ],
-    "tooltip": true
+    "tooltip": false
   },
   "memory": {
+    "tooltip": true,
+    "interval": 2,
     "format": "{icon} {percentage}%",
     "format-icons": [
       ""

@@ -26,9 +26,14 @@ window#waybar.hidden {
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
+#workspaces button:hover,
+#workspaces button.active:hover {
+  color: #000000;
+}
+
 #custom-clock,
 #clock,
-#wireplumber,
+#pulseaudio,
 #mode,
 #wireplumber.muted,
 #cpu,
