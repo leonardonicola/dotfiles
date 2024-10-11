@@ -48,6 +48,11 @@ local options = {
       n = { ["q"] = require("telescope.actions").close },
     },
   },
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+    },
+  },
 
   extensions_list = { "themes", "terms" },
   extensions = {
