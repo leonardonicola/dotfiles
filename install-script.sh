@@ -11,7 +11,7 @@ sudo pacman -S --noconfirm neofetch neovim nodejs btop tldr \
   tmux lua zsh fd ripgrep base-devel fzf zoxide go \
   docker starship eza ttf-jetbrains-mono-nerd noto-fonts-emoji \ 
   waybar pavucontrol nwg-look thunar swaync hyprpaper npm pnpm \
-  git github-cli
+  git github-cli discord
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -65,6 +65,9 @@ ln -sf "$dotfiles_path/.config/btop" ~/.config/btop
 
 # Swaync
 ln -sf "$dotfiles_path/.config/swaync" ~/.config/swaync
+
+# Discord
+mkdir ~/.config/discord && ln -sf "$dotfiles_path/.config/discord/settings.json" ~/.config/discord/settings.json
 
 # Update fonts
 fc-cache --really-force
