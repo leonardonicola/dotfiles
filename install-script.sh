@@ -11,7 +11,7 @@ sudo pacman -S --noconfirm neofetch neovim nodejs btop tldr \
   tmux lua zsh fd ripgrep base-devel fzf zoxide go \
   docker starship eza ttf-jetbrains-mono-nerd noto-fonts-emoji \ 
   waybar pavucontrol nwg-look thunar swaync hyprpaper npm pnpm \
-  git github-cli discord
+  git github-cli discord wl-clipboard
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
