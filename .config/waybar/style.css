@@ -31,7 +31,6 @@ window#waybar.hidden {
   color: #000000;
 }
 
-#custom-clock,
 #clock,
 #pulseaudio,
 #mode,
@@ -40,6 +39,7 @@ window#waybar.hidden {
 #tray,
 #language,
 #window,
+#custom-notifications,
 #workspaces button.focused,
 #workspaces button.active,
 #memory {
