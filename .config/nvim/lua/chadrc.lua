@@ -30,6 +30,10 @@ M.mason = {
   },
 }
 
+M.nvdash = {
+  load_on_startup = true,
+}
+
 M.ui = {
   theme = "poimandres",
   cmp = {
