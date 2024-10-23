@@ -1,3 +1,19 @@
+local function find_command()
+  if 1 == vim.fn.executable "rg" then
+    return { "rg", "--files", "--color", "never", "-g", "!.git" }
+  elseif 1 == vim.fn.executable "fd" then
+    return { "fd", "--type", "f", "--color", "never", "-E", ".git" }
+  elseif 1 == vim.fn.executable "fdfind" then
+    return { "fdfind", "--type", "f", "--color", "never", "-E", ".git" }
+  elseif 1 == vim.fn.executable "find" and vim.fn.has "win32" == 0 then
+    return { "find", ".", "-type", "f" }
+  elseif 1 == vim.fn.executable "where" then
+    return { "where", "/r", ".", "*" }
+  end
+end
+
+local actions = require "telescope.actions"
+
 local options = {
   defaults = {
     vimgrep_arguments = {
@@ -31,7 +47,7 @@ local options = {
       preview_cutoff = 120,
     },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
-    file_ignore_patterns = { "node_modules" },
+    file_ignore_patterns = { "node_modules", ".jpg", ".png", ".svg", ".jpeg", ".webp", ".gif" },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     path_display = { "truncate" },
     winblend = 0,
@@ -45,15 +61,32 @@ local options = {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
-      n = { ["q"] = require("telescope.actions").close },
+      i = {
+        ["<C-Down>"] = actions.cycle_history_next,
+        ["<C-Up>"] = actions.cycle_history_prev,
+        ["<C-j>"] = actions.preview_scrolling_down,
+        ["<C-k>"] = actions.preview_scrolling_up,
+      },
+      n = { ["q"] = actions.close },
     },
   },
   pickers = {
     find_files = {
-      find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+      find_command = find_command,
+      hidden = true,
     },
   },
-
+  get_selection_window = function()
+    local wins = vim.api.nvim_list_wins()
+    table.insert(wins, 1, vim.api.nvim_get_current_win())
+    for _, win in ipairs(wins) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      if vim.bo[buf].buftype == "" then
+        return win
+      end
+    end
+    return 0
+  end,
   extensions_list = { "themes", "terms" },
   extensions = {
     fzf = {

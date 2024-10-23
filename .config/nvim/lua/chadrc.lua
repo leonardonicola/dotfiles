@@ -32,6 +32,23 @@ M.mason = {
 
 M.nvdash = {
   load_on_startup = true,
+
+  header = {
+
+    "                     .::.",
+    "                  .:'  .:",
+    "        ,MMM8&&&.:'   .:'",
+    "       MMMMM88&&&&  .:'  ",
+    "      MMMMM88&&&&&&:'    ",
+    "      MMMMM88&&&&&&      ",
+    "    .:MMMMM88&&&&&&      ",
+    "  .:'  MMMMM88&&&&       ",
+    ".:'   .:'MMM8&&&'        ",
+    ":'  .:'                  ",
+    "'::'  arch btw           ",
+    "                         ",
+    "                         ",
+  },
 }
 
 M.ui = {
@@ -53,8 +70,6 @@ M.ui = {
   tabufline = {
     enabled = true,
     lazyload = true,
-    order = { "treeOffset", "buffers", "tabs", "btns" },
-    modules = nil,
   },
 
   term = {

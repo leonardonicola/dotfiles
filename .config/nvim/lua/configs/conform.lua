@@ -4,11 +4,13 @@ return {
     vue = { "prettier" },
     javascript = { "prettier" },
     typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    javascriptreact = { "prettier" },
+    json = { "prettier" },
+    html = { "prettier" },
+    css = { "prettier" },
     go = { "gofmt" },
   },
   -- Set up format-on-save
-  format_on_save = { timeout_ms = 2500, lsp_fallback = true, async = false },
-  log_level = vim.log.levels.ERROR,
-  -- Conform will notify you when a formatter errors
-  notify_on_error = true,
+  format_on_save = { timeout_ms = 3000, quiet = false, lsp_fallback = "fallback", async = false },
 }

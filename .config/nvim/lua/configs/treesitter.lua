@@ -20,7 +20,7 @@ return {
     "typescript",
     "vim",
     "vimdoc",
-    "terraform"
+    "terraform",
   },
   auto_install = true,
   sync_install = false,

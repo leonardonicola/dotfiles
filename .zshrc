@@ -23,7 +23,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^I'   complete-word
 bindkey '^[[Z' autosuggest-accept
 
-alias air='$(go env GOPATH)/bin/air'
+alias air='$GOBIN/air'
 alias cd="z"
 alias ls="exa -l -h --icons --no-time --no-permissions"
 alias vi="nvim"

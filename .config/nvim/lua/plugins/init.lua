@@ -18,7 +18,11 @@ return {
       require "configs.lint"
     end,
   },
-
+  {
+    "folke/ts-comments.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -27,8 +31,9 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     build = ":TSUpdate",
+    lazy = vim.fn.argc(-1) == 0,
     opts = require "configs.treesitter",
   },
   {
