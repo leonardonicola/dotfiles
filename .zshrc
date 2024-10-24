@@ -1,8 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:$GOBIN
-
-export ZSH=$HOME/.oh-my-zsh
-
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -42,6 +38,10 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# bun completions
+[ -s "/home/popinjay/.bun/_bun" ] && source "/home/popinjay/.bun/_bun"
+
+
 # Zoxide
 eval "$(zoxide init zsh)"
 
@@ -50,3 +50,7 @@ eval "$(starship init zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+export ZSH=$HOME/.oh-my-zsh
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$PATH:$GOBIN:"$BUN_INSTALL/bin:$PATH"
