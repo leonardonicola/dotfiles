@@ -5,7 +5,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "poimandres",
+  theme = "pastelDark",
   transparency = true,
 }
 
@@ -52,7 +52,7 @@ M.nvdash = {
 }
 
 M.ui = {
-  theme = "poimandres",
+  theme = "pastelDark",
   cmp = {
     icons = true,
     lspkind_text = true,
