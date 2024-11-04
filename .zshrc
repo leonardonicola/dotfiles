@@ -4,7 +4,6 @@ export PATH=$PATH:$GOBIN:"$BUN_INSTALL/bin:$PATH"
 # If you come from bash you might have to change your $PATH.
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
 CASE_SENSITIVE="true"
 
 plugins=(
@@ -22,9 +21,12 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^I'   complete-word
 bindkey '^[[Z' autosuggest-accept
 
+EZA="exa -l -h --icons --no-time --no-permissions"
+
 alias air='$GOBIN/air'
 alias cd="z"
-alias ls="exa -l -h --icons --no-time --no-permissions"
+alias ls="$EZA"
+alias lsa="$EZA -T --git-ignore"
 alias vi="nvim"
 
 export GOPATH="$HOME/go"
@@ -53,4 +55,3 @@ eval "$(starship init zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
-
