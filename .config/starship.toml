@@ -3,7 +3,7 @@
 continuation_prompt = "[▸▹ ](dimmed white)"
 
 format = """
-($directory $git_metrics)
+($directory$git_branch$git_status$git_metrics)
 $cmd_duration\
 $hostname\
 $localip\
@@ -20,9 +20,6 @@ $singularity\
 $kubernetes\
 $vcsh\
 $fossil_branch\
-$git_status\
-$git_branch\
-$git_state\
 $hg_branch\
 $pijul_channel\
 $docker_context\
@@ -134,9 +131,6 @@ disabled = false
 format = " [$branch(:$remote_branch)]($style)"
 symbol = "[△](bold italic bright-blue)"
 style = "italic bright-blue"
-truncation_symbol = "⋯"
-truncation_length = 20
-ignore_branches = ["main", "master"]
 only_attached = true
 
 [git_metrics]
