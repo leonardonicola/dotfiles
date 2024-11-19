@@ -8,7 +8,7 @@ import = [
 decorations = "none"
 title = "btw"
 padding.x = 24
-padding.y = 24
+padding.y = 16
 opacity = 0.90
 
 [font]

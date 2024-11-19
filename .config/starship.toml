@@ -1,6 +1,5 @@
 # version: 1.0.0
 
-add_newline = true
 continuation_prompt = "[▸▹ ](dimmed white)"
 
 format = """
@@ -21,6 +20,7 @@ $singularity\
 $kubernetes\
 $vcsh\
 $fossil_branch\
+$git_status\
 $git_branch\
 $git_state\
 $hg_branch\
