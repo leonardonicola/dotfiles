@@ -14,6 +14,7 @@ local servers = {
   "jsonls",
   "tailwindcss",
   "terraformls",
+  "volar",
 }
 
 -- lsps with default config
@@ -61,36 +62,6 @@ lspconfig.lua_ls.setup {
         },
         maxPreload = 100000,
         preloadFileSize = 10000,
-      },
-    },
-  },
-}
-
-lspconfig.volar.setup {
-  init_options = {
-    vue = {
-      hybridMode = false,
-    },
-  },
-  settings = {
-    typescript = {
-      inlayHints = {
-        enumMemberValues = {
-          enabled = true,
-        },
-        functionLikeReturnTypes = {
-          enabled = true,
-        },
-        propertyDeclarationTypes = {
-          enabled = true,
-        },
-        parameterTypes = {
-          enabled = true,
-          suppressWhenArgumentMatchesName = true,
-        },
-        variableTypes = {
-          enabled = true,
-        },
       },
     },
   },

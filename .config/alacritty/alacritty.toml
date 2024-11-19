@@ -1,24 +1,15 @@
+[general]
 live_config_reload = true
+import = [
+    "./themes/tokyonight.toml"
+]
 
 [window]
 decorations = "none"
 title = "btw"
-padding.x = 10
-padding.y = 10
-opacity = 0.85
-
-[colors.primary]
-background = "#101317"
-foreground = "#d4d4d5"
-
-[colors.normal]
-white = "#d4d4d5"
-black = "#101317"
-red = "#f87070"
-green = "#37d99e"
-blue = "#7ab0df"
-yellow = "#ffe59e"
-cyan = "#50cad2"
+padding.x = 24
+padding.y = 24
+opacity = 0.90
 
 [font]
 normal.family = "terminal-font"

@@ -23,10 +23,10 @@ local opt = {
   -- Making sure backspace works as intended
   backspace = "indent,eol,start",
   clipboard = "unnamedplus",
+  relativenumber = true,
   -- True color support
   termguicolors = true,
-  emoji = false,
-  relativenumber = true,
+  emoji = true,
   -- Line break/wrap behaviours
   linebreak = true,
   textwidth = 80,
@@ -46,3 +46,8 @@ local opt = {
 for k, v in ipairs(opt) do
   vim.opt[k] = v
 end
+
+vim.opt.relativenumber = true
+vim.cmd "hi IlluminatedWordText gui=bold"
+vim.cmd "hi IlluminatedWordRead gui=bold"
+vim.cmd "hi IlluminatedWordWrite gui=bold"

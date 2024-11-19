@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export BUN_INSTALL="$HOME/.bun"
-export PATH=$PATH:$GOBIN:"$BUN_INSTALL/bin:$PATH"
+export PATH=$PATH:$GOBIN:"$BUN_INSTALL/bin:$PATH:$HOME/.local/bin"
 # If you come from bash you might have to change your $PATH.
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -29,6 +29,7 @@ alias ls="$EZA"
 alias lsa="$EZA -T --git-ignore"
 alias vi="nvim"
 
+export EDITOR="nvim"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export NVM_DIR="$HOME/.nvm"

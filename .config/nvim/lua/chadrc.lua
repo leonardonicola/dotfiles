@@ -5,7 +5,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "pastelDark",
+  theme = "poimandres",
   transparency = true,
 }
 
@@ -52,24 +52,22 @@ M.nvdash = {
 }
 
 M.ui = {
-  theme = "pastelDark",
+  theme = "poimandres",
   cmp = {
     icons = true,
     lspkind_text = true,
     style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
   },
 
-  telescope = { style = "bordered" }, -- borderless / bordered
+  telescope = { style = "borderless" }, -- borderless / bordered
   statusline = {
-    separator_style = "round",
-    theme = "minimal",
-    order = nil,
+    separator_style = "arrow",
+    order = { "mode", "file", "lsp_msg", "%=", "diagnostics", "cwd" },
     modules = nil,
   },
 
   tabufline = {
-    enabled = true,
-    lazyload = true,
+    order = { "buffers", "tabs" },
   },
 
   term = {

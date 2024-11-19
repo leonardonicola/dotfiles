@@ -6,6 +6,16 @@ return {
     opts = require "configs.nvimtree",
   },
   {
+    "RRethy/vim-illuminate",
+    event = "VeryLazy",
+    opts = {
+      large_file_cutoff = 2000,
+    },
+    config = function(_, opts)
+      require("illuminate").configure(opts)
+    end,
+  },
+  {
     "kdheepak/lazygit.nvim",
     lazy = true,
     cmd = {
@@ -37,11 +47,6 @@ return {
     config = function()
       require "configs.lint"
     end,
-  },
-  {
-    "folke/ts-comments.nvim",
-    event = "VeryLazy",
-    opts = {},
   },
   -- These are some examples, uncomment them if you want to see them work!
   {

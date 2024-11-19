@@ -9,6 +9,7 @@ return {
     json = { "prettier" },
     html = { "prettier" },
     css = { "prettier" },
+    php = { "php-cs-fixer" },
     go = { "gofmt" },
   },
   -- Set up format-on-save
