@@ -1,0 +1,95 @@
+{
+  "features": {
+    "inline_completion_provider": "none"
+  },
+  "theme": "Rosé Pine",
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "tab_size": 2,
+  "cursor_blink": true,
+  "project_panel": {
+    "dock": "right"
+  },
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "preferred_line_length": 80,
+  "buffer_line_height": "comfortable",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "vim_mode": true,
+  "confirm_quit": false,
+  "hover_popover_enabled": true,
+  "inlay_hints": {
+    "enabled": true,
+    "parameterHints": true,
+    "chainingHints": true,
+    "show_type_hints": false
+  },
+  "terminal": {
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "font_family": "JetBrainsMono Nerd Font",
+    "font_size": 14,
+    "shell": {
+      "program": "zsh"
+    },
+    "working_directory": "current_project_directory"
+  },
+  "git": {
+    "enabled": true,
+    "inline_blame": null
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": true,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "always",
+    "endOfLine": "lf"
+  },
+  "linter": "eslint",
+  "format_on_save": "on",
+  "languages": {
+    "Javascript": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "Vue.js": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    }
+  }
+}

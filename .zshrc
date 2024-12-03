@@ -23,18 +23,18 @@ bindkey '^[[Z' autosuggest-accept
 
 EZA="exa -l -h --icons --no-time --no-permissions"
 
-alias air='$GOBIN/air'
-alias cd="z"
-alias ls="$EZA"
-alias lsa="$EZA -T --git-ignore"
-alias vi="nvim"
-
 export EDITOR="nvim"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias air='/usr/local/bin/air'
+alias cd="z"
+alias ls="$EZA"
+alias lsa="$EZA -T --git-ignore"
+alias vi="nvim"
 
 # pnpm
 export PNPM_HOME="/home/popinjay/.local/share/pnpm"

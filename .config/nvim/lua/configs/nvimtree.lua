@@ -3,7 +3,6 @@ local options = {
   git = { enable = true, ignore = true },
   view = {
     side = "right",
-    relativenumber = true,
     preserve_window_proportions = true,
   },
 
