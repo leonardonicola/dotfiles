@@ -1,11 +1,11 @@
--- EXAMPLE
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
 nvlsp.defaults()
 
-local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
-local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
+local mason_registry = require "mason-registry"
+local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+  .. "/node_modules/@vue/language-server"
 
 local servers = {
   "cssls",
@@ -75,7 +75,7 @@ lspconfig.ts_ls.setup {
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = volar_path,
+        location = vue_language_server_path,
         languages = { "vue" },
       },
     },

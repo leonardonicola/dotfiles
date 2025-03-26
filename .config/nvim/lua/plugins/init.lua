@@ -7,13 +7,16 @@ return {
   },
   {
     "RRethy/vim-illuminate",
-    event = "VeryLazy",
+    lazy = true,
     opts = {
       large_file_cutoff = 2000,
     },
-    config = function(_, opts)
-      require("illuminate").configure(opts)
-    end,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = require "configs.telescope",
   },
   {
     "kdheepak/lazygit.nvim",
@@ -51,21 +54,17 @@ return {
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
-    event = "User FilePost",
-    opts = require "configs.lspconfig",
+    event = { "User FilePost" },
+    config = function()
+      require "configs.lspconfig"
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     build = ":TSUpdate",
-    lazy = vim.fn.argc(-1) == 0,
+    lazy = true,
     opts = require "configs.treesitter",
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = require "configs.telescope",
   },
   {
     "windwp/nvim-ts-autotag",

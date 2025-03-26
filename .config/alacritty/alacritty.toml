@@ -9,7 +9,7 @@ decorations = "none"
 title = "btw"
 padding.x = 24
 padding.y = 16
-opacity = 0.90
+opacity = 0.99
 
 [font]
 normal.family = "terminal-font"

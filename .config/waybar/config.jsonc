@@ -2,7 +2,7 @@
 {
   "layer": "top",
   "position": "top", // Waybar position (top|bottom|left|right)
-  "output": "DP-4",
+  "display": "DP-3",
   "height": 40,
   "mode": "dock",
   "margin-right": 10,

@@ -85,7 +85,7 @@ symbol = ' '
 [character]
 format = "$symbol "
 success_symbol = "[◎](bold italic bright-yellow)"
-error_symbol = "[○](italic purple)"
+error_symbol = "[○](italic red)"
 vimcmd_symbol = "[■](italic dimmed green)"
 
 [env_var.VIMSHELL]
@@ -94,13 +94,13 @@ style = 'green italic'
 
 [sudo]
 format = "[$symbol]($style)"
-style = "bold italic bright-purple"
+style = "bold italic bright-white"
 symbol = "⋈┈"
 disabled = false
 
 [username]
 style_user = "bright-yellow bold italic"
-style_root = "purple bold italic"
+style_root = "white bold italic"
 format = "[⭘ $user]($style) "
 disabled = false
 show_always = false
@@ -109,10 +109,10 @@ show_always = false
 home_symbol = "⌂"
 read_only = " ◈"
 use_os_path_sep = true
-style = "italic blue"
+style = "italic white"
 format = '[$path]($style)[$read_only]($read_only_style)'
-repo_root_style = 'bold blue'
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold bright-blue)'
+repo_root_style = 'bold white'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold bright-white)'
 
 [cmd_duration]
 format = "[◄ $duration ](italic white)"
@@ -120,7 +120,7 @@ format = "[◄ $duration ](italic white)"
 [jobs]
 format = "[$symbol$number]($style) "
 style = "white"
-symbol = "[▶](blue italic)"
+symbol = "[▶](white italic)"
 
 [localip]
 ssh_only = true
@@ -129,8 +129,8 @@ disabled = false
 
 [git_branch]
 format = " [$branch(:$remote_branch)]($style)"
-symbol = "[△](bold italic bright-blue)"
-style = "italic bright-blue"
+symbol = "[△](bold italic)"
+style = "italic bright-green"
 only_attached = true
 
 [git_metrics]

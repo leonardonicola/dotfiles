@@ -1,4 +1,4 @@
-local options = {
+return {
   sync_root_with_cwd = true,
   git = { enable = true, ignore = true },
   view = {
@@ -26,8 +26,7 @@ local options = {
   filesystem_watchers = {
     ignore_dirs = {
       "node_modules",
+      "dist",
     },
   },
 }
-
-return options

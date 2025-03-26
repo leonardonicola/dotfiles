@@ -21,7 +21,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^I'   complete-word
 bindkey '^[[Z' autosuggest-accept
 
-EZA="exa -l -h --icons --no-time --no-permissions"
+EZA="exa -l -h --icons --no-time --no-permissions --no-user"
 
 export EDITOR="nvim"
 export GOPATH="$HOME/go"

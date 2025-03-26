@@ -55,8 +55,7 @@ M.ui = {
   theme = "poimandres",
   cmp = {
     icons = true,
-    lspkind_text = true,
-    style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
+    style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
   },
 
   telescope = { style = "borderless" }, -- borderless / bordered
@@ -64,6 +63,7 @@ M.ui = {
     separator_style = "arrow",
     order = { "mode", "file", "lsp_msg", "%=", "diagnostics", "cwd" },
     modules = nil,
+    theme = "vscode",
   },
 
   tabufline = {
