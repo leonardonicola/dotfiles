@@ -5,7 +5,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "poimandres",
+  theme = "vesper",
   transparency = true,
 }
 
@@ -52,7 +52,7 @@ M.nvdash = {
 }
 
 M.ui = {
-  theme = "poimandres",
+  theme = "vesper",
   cmp = {
     icons = true,
     style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
