@@ -1,24 +1,16 @@
 return {
   {
-    "nvim-tree/nvim-web-devicons",
-    opts = function()
-      return require "configs.devicons"
-    end,
-    config = function(_, opts)
-      require("nvim-web-devicons").setup(opts)
-    end,
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    opts = require "configs.notify",
   },
   {
-    "echasnovski/mini.icons",
-    opts = {},
-    specs = {
-      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
     },
-    init = function()
-      package.preload["nvim-web-devicons"] = function()
-        require("mini.icons").mock_nvim_web_devicons()
-        return package.loaded["nvim-web-devicons"]
-      end
-    end,
+    opts = require "configs.noice",
   },
 }

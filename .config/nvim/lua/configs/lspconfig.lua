@@ -3,10 +3,6 @@ local nvlsp = require "nvchad.configs.lspconfig"
 
 nvlsp.defaults()
 
-local mason_registry = require "mason-registry"
-local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-  .. "/node_modules/@vue/language-server"
-
 local servers = {
   "cssls",
   "html",
@@ -15,6 +11,7 @@ local servers = {
   "tailwindcss",
   "terraformls",
   "volar",
+  "biome",
 }
 
 -- lsps with default config
@@ -29,13 +26,17 @@ end
 lspconfig.eslint.setup {
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
-
   on_attach = function(_, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       command = "EslintFixAll",
     })
   end,
+  settings = {
+    workingDirectory = {
+      mode = "auto",
+    },
+  },
 }
 
 lspconfig.lua_ls.setup {
@@ -48,20 +49,20 @@ lspconfig.lua_ls.setup {
         enable = true,
       },
       diagnostics = {
+        disable = { "incomplete-signature-doc", "trailing-space" },
         globals = { "vim" },
+        -- enable = false,
       },
       workspace = {
+        checkThirdParty = false,
+
         library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-
-          [vim.fn.stdpath "config" .. "/lua"] = true,
-          [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
-
-          [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+          vim.env.VIMRUNTIME .. "/lua",
         },
-        maxPreload = 100000,
-        preloadFileSize = 10000,
+      },
+      completion = {
+        workspaceWord = true,
+        callSnippet = "Both",
       },
     },
   },
@@ -75,7 +76,8 @@ lspconfig.ts_ls.setup {
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = vue_language_server_path,
+        location = vim.fn.stdpath "data"
+          .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
         languages = { "vue" },
       },
     },

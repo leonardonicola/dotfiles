@@ -1,6 +1,6 @@
 * {
-  font-family: "terminal-font";
-  font-size: 13px;
+  font-family: "terminal-font", sans-serif;
+  font-size: 14px;
   min-height: 0;
 }
 
@@ -26,11 +26,6 @@ window#waybar.hidden {
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-#workspaces button:hover,
-#workspaces button.active:hover {
-  color: #000000;
-}
-
 #clock,
 #pulseaudio,
 #mode,
@@ -52,4 +47,38 @@ window#waybar.hidden {
   border: 2px solid transparent;
   background-clip: padding-box;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+/* Module-specific styling */
+#clock {
+  background-color: alpha(#000000, 0.9);
+  font-weight: bold;
+}
+
+#pulseaudio {
+  background-color: alpha(#000000, 0.9);
+}
+
+
+/* Simple animations */
+@keyframes pulse {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+/* Hover effects for modules */
+#clock:hover,
+#pulseaudio:hover,
+#mode:hover,
+#cpu:hover,
+#tray:hover,
+#language:hover,
+#window:hover,
+#custom-notifications:hover,
+#memory:hover, 
+#workspaces button:hover,
+#workspaces button.active:hover
+{
+  border-color: #0070f3;
+  box-shadow: 3px 3px 2px 1px alpha(#0070f3, 0.2);
 }

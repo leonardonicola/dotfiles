@@ -1,34 +1,34 @@
 [
   {
+    "bindings": {
+      "ctrl-left": "workspace::ActivatePaneLeft",
+      "ctrl-right": "workspace::ActivatePaneRight",
+      "ctrl-up": "workspace::ActivatePaneUp",
+      "ctrl-down": "workspace::ActivatePaneDown"
+    }
+  },
+  {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       "space g l": [
-        "workspace::SendKeystrokes",
-        ": new center terminal enter lazygit enter"
+        "task::Spawn",
+        { "task_name": "Lazygit", "target": "center" }
       ],
       "space space": "file_finder::Toggle",
       "shift-k": "editor::Hover",
       "space d s": "diagnostics::Deploy",
       "space f w": "pane::DeploySearch",
-      "shift-tab": "pane::ActivatePrevItem",
       "tab": "pane::ActivateNextItem",
+      "shift-tab": "pane::ActivatePreviousItem",
       "space r": "editor::Rename",
       "ctrl-n": "project_panel::ToggleFocus",
       "n": "search::SelectNextMatch",
-      "shift-n": "search::SelectPrevMatch",
       "space x": "pane::CloseActiveItem",
       "ctrl-l": "project_panel::ToggleFocus",
       "ctrl-j": "terminal_panel::ToggleFocus"
     }
   },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-k": "terminal_panel::ToggleFocus",
-      "ctrl-l": "project_panel::ToggleFocus",
-      "ctrl-w": "pane::CloseActiveItem"
-    }
-  },
+
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
@@ -37,7 +37,7 @@
       "h": "project_panel::CollapseSelectedEntry",
       "l": "project_panel::ExpandSelectedEntry",
       "j": "menu::SelectNext",
-      "k": "menu::SelectPrev",
+      "k": "menu::SelectPrevious",
       "o": "menu::Confirm",
       "r": "project_panel::Rename",
       "z c": "project_panel::CollapseSelectedEntry",
@@ -48,8 +48,8 @@
       "d": "project_panel::Delete",
       "a": "project_panel::NewFile",
       "shift-a": "project_panel::NewDirectory",
-      "shift-y": "project_panel::CopyRelativePath",
-      "g y": "project_panel::CopyPath"
+      "shift-y": "workspace::CopyRelativePath",
+      "g y": "workspace::CopyPath"
     }
   }
 ]

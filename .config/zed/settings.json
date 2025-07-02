@@ -1,8 +1,17 @@
 {
   "features": {
-    "inline_completion_provider": "none"
+    "edit_prediction_provider": "zed"
   },
-  "theme": "Rosé Pine",
+  "edit_predictions": {
+    "disabled_globs": [],
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_assistant": false
+  },
+  "theme": "Vesper",
   "ui_font_size": 14,
   "buffer_font_size": 14,
   "tab_size": 2,
@@ -43,52 +52,60 @@
   },
   "git": {
     "enabled": true,
-    "inline_blame": null
+    "inline_blame": {
+      "enabled": false
+    }
   },
-  "prettier": {
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": true,
-    "trailingComma": "none",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "arrowParens": "always",
-    "endOfLine": "lf"
-  },
-  "linter": "eslint",
   "format_on_save": "on",
   "languages": {
-    "Javascript": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
+      "formatter": [
+        {
+          "external": {
+            "command": "prettier",
+            "arguments": ["--stdin-filepath", "{buffer_path}"]
+          }
+        }
+      ]
+    },
+    "Typescript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
       "formatter": {
         "external": {
           "command": "prettier",
           "arguments": ["--stdin-filepath", "{buffer_path}"]
         }
-      },
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
       }
     },
-    "TypeScript": {
+    "TSX": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
       "formatter": {
         "external": {
           "command": "prettier",
           "arguments": ["--stdin-filepath", "{buffer_path}"]
         }
-      },
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
       }
     },
     "Vue.js": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
       "formatter": {
         "external": {
           "command": "prettier",
           "arguments": ["--stdin-filepath", "{buffer_path}"]
         }
-      },
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
       }
     }
   }

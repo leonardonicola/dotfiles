@@ -4,9 +4,17 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.colorify = {
+  enabled = true,
+}
+
 M.base46 = {
-  theme = "vesper",
+  theme = "obsidian-ember",
   transparency = true,
+}
+
+M.lsp = {
+  signature = false,
 }
 
 M.mason = {
@@ -22,6 +30,7 @@ M.mason = {
     "html-lsp",
     "json-lsp",
     "stylua",
+    "selene",
     "tailwindcss-language-server",
     "lua-language-server",
     "vue-language-server",
@@ -50,20 +59,18 @@ M.nvdash = {
     "                         ",
   },
 }
-
 M.ui = {
-  theme = "vesper",
   cmp = {
     icons = true,
-    style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
+    format_colors = { tailwind = true },
+    style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
   },
 
   telescope = { style = "borderless" }, -- borderless / bordered
   statusline = {
-    separator_style = "arrow",
     order = { "mode", "file", "lsp_msg", "%=", "diagnostics", "cwd" },
     modules = nil,
-    theme = "vscode",
+    theme = "vscode_colored",
   },
 
   tabufline = {

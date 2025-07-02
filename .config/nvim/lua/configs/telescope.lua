@@ -35,21 +35,29 @@ local options = {
     layout_strategy = "horizontal",
     layout_config = {
       horizontal = {
-        prompt_position = "top",
-        preview_width = 0.55,
-        results_width = 0.8,
+        preview_width = 0.6,
+        results_width = 0.4,
       },
       vertical = {
-        mirror = false,
+        mirror = true,
       },
-      width = 0.87,
-      height = 0.80,
-      preview_cutoff = 120,
+      width = 0.9,
+      height = 0.85,
+      preview_cutoff = 100,
     },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
-    file_ignore_patterns = { "node_modules", ".jpg", ".png", ".svg", ".jpeg", ".webp", ".gif" },
+    file_ignore_patterns = {
+      "node_modules",
+      "%.jpg",
+      "%.png",
+      "%.svg",
+      "%.jpeg",
+      "%.webp",
+      "%.gif",
+      "%.git/",
+    },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-    path_display = { "truncate" },
+    path_display = { "smart" },
     winblend = 0,
     border = {},
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
@@ -74,6 +82,11 @@ local options = {
     find_files = {
       find_command = find_command,
       hidden = true,
+    },
+    live_grep = {
+      additional_args = function()
+        return { "--hidden" }
+      end,
     },
   },
   get_selection_window = function()

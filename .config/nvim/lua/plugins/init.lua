@@ -6,12 +6,19 @@ return {
     opts = require "configs.nvimtree",
   },
   {
-    "RRethy/vim-illuminate",
-    lazy = true,
-    opts = {
-      large_file_cutoff = 2000,
-    },
+    "andymass/vim-matchup",
+    event = "VeryLazy",
   },
+  {
+    "echasnovski/mini.nvim",
+    version = false,
+    event = "VeryLazy",
+    config = function()
+      require("mini.surround").setup()
+    end,
+  },
+
+  { import = "nvchad.blink.lazyspec" },
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
@@ -28,14 +35,8 @@ return {
       "LazyGitFilter",
       "LazyGitFilterCurrentFile",
     },
-    -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
-    },
-    -- setting the keybinding for LazyGit with 'keys' is recommended in
-    -- order to load the plugin when the command is run for the first time
-    keys = {
-      { "<leader>gl", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
   {
@@ -51,7 +52,6 @@ return {
       require "configs.lint"
     end,
   },
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     event = { "User FilePost" },
@@ -62,19 +62,14 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     lazy = true,
     opts = require "configs.treesitter",
   },
   {
     "windwp/nvim-ts-autotag",
-    ft = {
-      "typescript",
-      "javascript",
-      "typescriptreact",
-      "javascriptreact",
-      "vue",
-    },
+    lazy = true,
     config = function()
       require("nvim-ts-autotag").setup()
     end,

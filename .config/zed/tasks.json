@@ -1,8 +1,11 @@
 [
   {
     "label": "Lazygit",
-    "command": "lazygit",
+    "command": "alacritty --command lazygit",
     "use_new_terminal": true,
-    "allow_concurrent_runs": false
+    "allow_concurrent_runs": false,
+    "working_directory": "${ZED_WORKING_DIRECTORY}",
+    "hide": "on_success",
+    "reveal": "always"
   }
 ]
