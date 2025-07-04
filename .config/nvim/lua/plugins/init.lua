@@ -41,7 +41,7 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    event = { "BufReadPre", "BufNewFile", "BufWritePre" },
+    event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     opts = require "configs.conform",
   },
@@ -69,7 +69,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    lazy = true,
+    lazy = false,
     config = function()
       require("nvim-ts-autotag").setup()
     end,

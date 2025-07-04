@@ -1,15 +1,25 @@
 require("lint").linters_by_ft = {
-  javascript = { "biomejs", "eslint" },
-  typescript = { "biomejs", "eslint" },
+  javascript = { "biomejs", "eslint_d" },
+  typescript = { "biomejs", "eslint_d" },
   typescriptreact = { "biomejs" },
   javascriptreact = { "biomejs" },
-  vue = { "eslint" },
+  vue = { "eslint_d" },
   lua = { "luacheck" },
 }
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  group = vim.api.nvim_create_augroup("lint", { clear = true }),
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
+require("lint").linters.luacheck = {
+  cmd = "luacheck",
+  stdin = true,
+  args = {
+    "--globals",
+    "vim",
+    "lvim",
+    "reload",
+    "--",
+  },
+  stream = "stdout",
+  ignore_exitcode = true,
+  parser = require("lint.parser").from_errorformat("%f:%l:%c: %m", {
+    source = "luacheck",
+  }),
+}
