@@ -1,6 +1,6 @@
 [mgr]
 ratio = [2,3,4]
-show_symlink = false
+show_symlink = true
 
 [opener]
 play = [
