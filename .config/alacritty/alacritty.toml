@@ -7,7 +7,7 @@ import = [
 [window]
 decorations = "none"
 title = "btw"
-padding.x = 24
+padding.x = 16
 padding.y = 16
 opacity = 0.92
 

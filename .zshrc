@@ -14,9 +14,10 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   starship
+  zsh-nvm
 )
 
-source $ZSH/oh-my-zsh.sh 
+source $ZSH/oh-my-zsh.sh
 
 bindkey '^I'   complete-word
 bindkey '^[[Z' autosuggest-accept

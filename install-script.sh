@@ -7,16 +7,9 @@ dotfiles_path="$(pwd)"
 sudo pacman -Syu --noconfirm
 
 # Packages
-sudo pacman -S --noconfirm neofetch neovim nodejs btop tldr \
-  tmux lua zsh fd ripgrep base-devel fzf zoxide go \
-  docker starship eza ttf-jetbrains-mono-nerd noto-fonts-emoji \ 
-  waybar pavucontrol nwg-look thunar swaync hyprpaper npm pnpm \
-  git github-cli discord wl-clipboard
+sudo pacman -S --noconfirm nvim nodejs btop tldr lua zsh fd ripgrep base-devel fzf zoxide go docker starship eza ttf-jetbrains-mono-nerd noto-fonts-emoji waybar pavucontrol nwg-look thunar swaync hyprpaper npm pnpm git github-cli discord wl-clipboard lazygit refind hyprlock hyprland php-gd php
 
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-# Link zsh 
+# Link zsh
 ln -sf "$dotfiles_path/.zshrc" ~/.zshrc
 
 # Set zsh to default shell
@@ -25,6 +18,7 @@ chsh -s $(which zsh)
 # Zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
 
 # Install nvm for Node.js
 PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
@@ -49,7 +43,12 @@ git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 rm -rf ~/.config/hypr && ln -sf "$dotfiles_path/.config/hypr" ~/.config/hypr
 
 # Alacritty
-ln -sf "$dotfiles_path/.config/alacritty.toml" ~/.alacritty.toml
+ln -sf "$dotfiles_path/.config/alacritty" ~/.config/alacritty
+
+# Lazygit
+ln -sf "$dotfiles_path/.config/lazygit" ~/.config/lazygit
+
+ln -sf "$dotfiles_path/.config/wofi" ~/.config/wofi
 
 # Waybar
 ln -sf "$dotfiles_path/.config/waybar" ~/.config/waybar
