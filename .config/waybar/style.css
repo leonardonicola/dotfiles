@@ -15,11 +15,8 @@ window#waybar.hidden {
 
 #workspaces button {
   border-radius: 10px;
-  margin-right: 3px;
-  margin-left: 3px;
-  margin-top: 3px;
-  margin-bottom: 3px;
   padding: 0 5px;
+  margin: 3px;
   font-weight: bolder;
   min-width: 20px;
   color: #ffffff;
@@ -37,16 +34,22 @@ window#waybar.hidden {
 #custom-notifications,
 #workspaces button.focused,
 #workspaces button.active,
+#custom-power,
 #memory {
   background-color: alpha(#000000, 0.9);
   color: #ffffff;
-  padding: 0 10px;
-  margin: 2px 4px 5px 4px;
+  padding: 0px 10px;
+  margin: 0px 5px 5px 4px;
   border-radius: 10px;
   box-shadow: 3px 3px 1px 1px alpha(#000000, 0.7);
   border: 2px solid transparent;
   background-clip: padding-box;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#custom-notifications,
+#custom-power {
+  padding: 0px 13px 0px 10px;
 }
 
 /* Module-specific styling */
@@ -59,11 +62,14 @@ window#waybar.hidden {
   background-color: alpha(#000000, 0.9);
 }
 
-
 /* Simple animations */
 @keyframes pulse {
-  from { opacity: 0.8; }
-  to { opacity: 1; }
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Hover effects for modules */
@@ -75,10 +81,10 @@ window#waybar.hidden {
 #language:hover,
 #window:hover,
 #custom-notifications:hover,
-#memory:hover, 
+#custom-power:hover,
+#memory:hover,
 #workspaces button:hover,
-#workspaces button.active:hover
-{
+#workspaces button.active:hover {
   border-color: #0070f3;
   box-shadow: 3px 3px 2px 1px alpha(#0070f3, 0.2);
 }

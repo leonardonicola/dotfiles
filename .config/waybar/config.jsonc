@@ -2,7 +2,6 @@
 {
 	"layer": "top",
 	"position": "top", // Waybar position (top|bottom|left|right)
-	"display": "DP-2",
 	"height": 40,
 	"mode": "dock",
 	"margin-right": 10,
@@ -17,7 +16,8 @@
 		"memory",
 		"pulseaudio",
 		"clock",
-		"custom/notifications"
+		"custom/notifications",
+		"custom/power"
 	],
 	"custom/notifications": {
 		"tooltip": false,
@@ -86,5 +86,12 @@
 		"interval": 2,
 		"format": "{icon} {percentage}%",
 		"format-icons": [""]
-	}
+	},
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "wlogout",
+    "tooltip": true,
+    "tooltip-format":"Menu"
+  }
 }
