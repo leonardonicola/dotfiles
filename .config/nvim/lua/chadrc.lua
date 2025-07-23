@@ -67,9 +67,9 @@ M.ui = {
 
   telescope = { style = "borderless" }, -- borderless / bordered
   statusline = {
-    order = { "mode", "file", "lsp_msg", "%=", "diagnostics", "cwd" },
-    modules = nil,
+    order = { "mode", "file", "git", "%=", "lsp", "diagnostics", "cwd" },
     theme = "vscode_colored",
+    enabled = true
   },
 
   tabufline = {
