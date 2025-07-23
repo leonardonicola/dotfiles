@@ -7,7 +7,7 @@ dotfiles_path="$(pwd)"
 sudo pacman -Syu --noconfirm
 
 # Packages
-sudo pacman -S --noconfirm nvim nodejs btop tldr lua zsh fd ripgrep base-devel fzf zoxide go docker starship eza ttf-jetbrains-mono-nerd noto-fonts-emoji waybar pavucontrol nwg-look thunar swaync hyprpaper npm pnpm git github-cli discord wl-clipboard lazygit refind hyprlock hyprland php-gd php
+sudo pacman -S --noconfirm nvim nodejs btop tldr lua luarocks luacheck zsh fd ripgrep base-devel fzf zoxide go docker starship eza ttf-jetbrains-mono-nerd noto-fonts-emoji waybar pavucontrol nwg-look thunar swaync hyprpaper npm pnpm git github-cli discord wl-clipboard lazygit refind hyprlock hyprland php-gd php php-pgsql docker-compose
 
 # Link zsh
 ln -sf "$dotfiles_path/.zshrc" ~/.zshrc
@@ -18,7 +18,6 @@ chsh -s $(which zsh)
 # Zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/unixorn/git-extra-commands.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/git-extra-commands
 
 # Install nvm for Node.js
 PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
@@ -64,6 +63,9 @@ ln -sf "$dotfiles_path/.config/btop" ~/.config/btop
 
 # Swaync
 ln -sf "$dotfiles_path/.config/swaync" ~/.config/swaync
+
+# Starship
+ln -sf "$dotfiles_path/.config/starship.toml" ~/.config/starship.toml
 
 # Discord
 mkdir ~/.config/discord && ln -sf "$dotfiles_path/.config/discord/settings.json" ~/.config/discord/settings.json

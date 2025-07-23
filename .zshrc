@@ -15,7 +15,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   starship
-  git-extra-commands
 )
 
 source $ZSH/oh-my-zsh.sh
