@@ -17,7 +17,6 @@
 	ck = checkout
 	ps = !git push origin `git branch --show-current`
 	pl = !git pull origin `git branch --show-current`
-  prune = git branch --merged "$(git origin-head)" | grep -v "^[*+]" | xargs -n 1 git branch -d
 [color]
   status = auto
   diff = auto
@@ -27,3 +26,7 @@
   ui = auto
 [diff]
   tool = nvimdiff
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[push]
+	autoSetupRemote = true
