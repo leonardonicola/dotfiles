@@ -2,14 +2,15 @@
   "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 12,
-    "y": 62,
-    "width": 941,
-    "height": 1006
+    "x": 1929,
+    "y": 991,
+    "width": 1062,
+    "height": 920
   },
   "SKIP_HOST_UPDATE": true,
   "chromiumSwitches": {},
   "BACKGROUND_COLOR": "#000000",
   "MINIMIZE_TO_TRAY": false,
-  "OPEN_ON_STARTUP": false
+  "OPEN_ON_STARTUP": false,
+  "offloadAdmControls": false
 }
