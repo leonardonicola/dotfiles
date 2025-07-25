@@ -67,6 +67,8 @@ ln -sf "$dotfiles_path/.config/swaync" ~/.config/swaync
 # Starship
 ln -sf "$dotfiles_path/.config/starship.toml" ~/.config/starship.toml
 
+ln -sf "$dotfiles_path/.XCompose" ~/.XCompose
+
 # Discord
 mkdir ~/.config/discord && ln -sf "$dotfiles_path/.config/discord/settings.json" ~/.config/discord/settings.json
 
