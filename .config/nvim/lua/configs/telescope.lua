@@ -25,6 +25,7 @@ local options = {
       "--line-number",
       "--column",
       "--smart-case",
+      "--fixed-strings"
     },
     prompt_prefix = "   ",
     selection_caret = "  ",
