@@ -20,6 +20,16 @@ return {
           untracked = "?",
           unstaged = "M",
         },
+        folder = {
+          arrow_closed = "", -- arrow when folder is closed
+          arrow_open = "", -- arrow when folder is open
+          default = "", -- closed folder
+          open = "", -- open folder
+          empty = "", -- empty folder
+          empty_open = "", -- empty folder open
+          symlink = "", -- folder symlink
+          symlink_open = "", -- opened symlink
+        },
       },
     },
   },

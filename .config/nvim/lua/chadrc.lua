@@ -9,7 +9,7 @@ M.colorify = {
 }
 
 M.base46 = {
-  theme = "obsidian-ember",
+  theme = "vesper",
   transparency = true,
 }
 
