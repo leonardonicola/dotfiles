@@ -33,8 +33,3 @@ map("i", "<C-l>", "<Right>")
 map("i", "<C-h>", "<Left>")
 map("i", "<C-k>", "<Up>")
 map("i", "<C-j>", "<Down>")
-
--- notify
-map("n", "<Esc>", function()
-  require("notify").dismiss()
-end, { desc = "dismiss Notify popup and clear hlsearch" })
