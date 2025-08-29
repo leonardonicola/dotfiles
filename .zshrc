@@ -32,9 +32,10 @@ export NVM_DIR="$HOME/.nvm"
 alias air='/usr/local/bin/air'
 alias cd="z"
 alias ls="$EZA"
-alias lsa="$EZA -T --git-ignore"
+alias tree="$EZA -T --git-ignore --no-filesize"
 alias vi="nvim"
 alias neovim="nvim"
+alias cb="wl-copy --type text/plain"
 
 # pnpm
 export PNPM_HOME="/home/popinjay/.local/share/pnpm"
