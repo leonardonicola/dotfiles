@@ -13,4 +13,12 @@ return {
     },
     opts = require "configs.noice",
   },
+  {
+    "3rd/image.nvim",
+    build = false,
+    event = "VeryLazy",
+    opts = {
+      processor = "magick_cli"
+    }
+  }
 }

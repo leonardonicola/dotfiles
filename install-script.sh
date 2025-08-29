@@ -7,7 +7,7 @@ dotfiles_path="$(pwd)"
 sudo pacman -Syu --noconfirm
 
 # Packages
-sudo pacman -S --noconfirm nvim nodejs btop tldr lua luarocks luacheck zsh fd ripgrep base-devel fzf zoxide go docker starship eza ttf-jetbrains-mono-nerd noto-fonts-emoji waybar pavucontrol nwg-look thunar swaync hyprpaper npm pnpm git github-cli discord wl-clipboard lazygit refind hyprlock hyprland php-gd php php-pgsql docker-compose
+sudo pacman -S --noconfirm nvim nodejs btop tldr lua luarocks luacheck zsh fd ripgrep base-devel fzf zoxide go docker starship eza ttf-jetbrains-mono-nerd noto-fonts-emoji waybar pavucontrol nwg-look thunar swaync hyprpaper npm pnpm git github-cli discord wl-clipboard lazygit refind hyprlock hyprland php-gd php php-pgsql docker-compose imagemagick
 
 # Link zsh
 ln -sf "$dotfiles_path/.zshrc" ~/.zshrc
