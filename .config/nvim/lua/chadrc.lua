@@ -9,8 +9,29 @@ M.colorify = {
 }
 
 M.base46 = {
-  theme = "vesper",
+  theme = "obsidian-ember",
   transparency = true,
+  hl_override = {
+
+    NvimTreeFolderIcon = { fg = "#6c757d" }, -- grey folder icon
+    NvimTreeFolderName = { fg = "#ced4da" }, -- white text
+    NvimTreeOpenedFolderName = { fg = "#b9b9b9", italic = true },
+    NvimTreeEmptyFolderName = { fg = "#8e8e8e" },
+    NvimTreeOpenedFolderIcon = { fg = "#6c757d" },
+    NvimTreeNormalNC = { fg = "#ced4da" },
+
+    -- Git status colors
+    NvimTreeGitDirty = { fg = "#ffe6a7" },  -- slight yellow
+    NvimTreeGitStaged = { fg = "#1dd260" }, -- keep green for staged
+    NvimTreeGitNew = { fg = "#ffe6a7" },
+    NvimTreeGitRenamed = { fg = "#ffe6a7" },
+    NvimTreeGitDeleted = { fg = "#E85D75" }, -- keep red for deleted
+    NvimTreeGitIgnored = { fg = "#1f1f1f" },
+
+    -- Arrow colors (also grey to match)
+    NvimTreeFolderArrowClosed = { fg = "#ced4da" },
+    NvimTreeFolderArrowOpen = { fg = "#ced4da" },
+  }
 }
 
 M.lsp = {
