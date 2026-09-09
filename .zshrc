@@ -1,9 +1,11 @@
 export ZSH=$HOME/.oh-my-zsh
 export BUN_INSTALL="$HOME/.bun"
-export PATH=$PATH:$GOBIN:"$BUN_INSTALL/bin:$PATH:$HOME/.local/bin"
 export EDITOR="nvim"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
+
+export PATH="$PATH:$GOBIN:$BUN_INSTALL/bin:$HOME/.local/bin"
+alias pip="python3 -m pip"
 
 CASE_SENSITIVE="true"
 
@@ -22,12 +24,11 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^I'   complete-word
 bindkey '^[[Z' autosuggest-accept
 
-EZA="exa -l -h --icons --no-time --no-permissions --no-user"
+EZA="eza -l -h --icons --no-time --no-permissions --no-user"
 
-# NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+    [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 alias air='/usr/local/bin/air'
 alias cd="z"
@@ -38,7 +39,7 @@ alias neovim="nvim"
 alias cb="wl-copy --type text/plain"
 
 # pnpm
-export PNPM_HOME="/home/popinjay/.local/share/pnpm"
+export PNPM_HOME="/opt/homebrew/bin"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -57,3 +58,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 # terraform
 complete -o nospace -C /usr/bin/terraform terraform
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+export DYLD_LIBRARY_PATH="/opt/homebrew/opt/expat/lib:$DYLD_LIBRARY_PATH"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"

@@ -7,6 +7,7 @@ return {
     typescriptreact = { "biome-check", "prettierd" },
     javascriptreact = { "biome-check", "prettierd" },
     json = { "prettierd" },
+    jsonc = { "prettierd" },
     html = { "prettierd" },
     css = { "prettierd" },
     go = { "gofmt" },
