@@ -5,3 +5,7 @@ customCommands:
     context: "files"
     loadingText: "opening commitizen commit tool"
     output: terminal
+
+keybinding:
+  files:
+    commitChangesWithEditor: "<c-e>"
